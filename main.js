@@ -535,19 +535,20 @@ function parseLocationData(locationdata, callback) {
 
   // shared location data is contained in the first element
   let perlocarr = locationdata[0];
+  let myloc = locationdata[9];
   let userdataobjarr = [];
 
-  if(perlocarr && perlocarr.length > 0) {
-    for(let i=0; i<perlocarr.length;i++) {
-      extractUserLocationData(perlocarr[i], function(err, obj) {
-        if(err) {
-          if(callback) callback(err);
-          return
-        } else {
-          userdataobjarr[i] = obj;
-        }
-      });
-    }
+  if(myloc && myloc.length > 0) {
+
+    extractUserLocationData(myloc,  function(err, obj) {
+      if(err) {
+        if(callback) callback(err);
+        return
+      } else {
+        userdataobjarr[0] = obj;
+      }
+    });
+
   } else {
     throw new Error('No location data in response. Cookie expired.');
     adapter.log.debug('No location data: ' + JSON.stringify(locationdata, null, 2));

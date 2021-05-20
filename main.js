@@ -305,19 +305,19 @@ function updateStates(userobjarr, callback) {
 
         if (userobjarr[i].hasOwnProperty('name') && userobjarr[i]['name']) username = userobjarr[i]['name'];
 
-        let obj = {
-            "_id": "user." + userobjarr[i].id,
-            "type": "device",
-            "common": {
-            "name": username
-          },
-            "native": {}
-          };
-        adapter.setObjectNotExists('user.' + userobjarr[i].id, obj);
+        // let obj = {
+        //     "_id": "user." + userobjarr[i].id,
+        //     "type": "device",
+        //     "common": {
+        //     "name": username
+        //   },
+        //     "native": {}
+        //   };
+        // adapter.setObjectNotExists('user.' + userobjarr[i].id, obj);
 
         if(userobjarr[i].hasOwnProperty(cprop)) {
           // cur properties
-          let cid = 'user.' + userobjarr[i].id + '.' + cprop;
+          let cid = 'user.' + cprop;
           let crole = 'state'; // default role
           let cunit = ''; // default unit
 

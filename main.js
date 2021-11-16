@@ -483,7 +483,7 @@ function setStateEx(id, common, val, ack, callback) {
 function getSharedLocations(callback) {
 
   let options_map = {
-    uri: "https://www.google.com/maps/rpc/locationsharing/read",
+    uri: "https://www.google.de/maps/rpc/locationsharing/read?authuser=0&pb",
     headers: {
       "Cookie": google_cookie_header
     },
